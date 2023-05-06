@@ -17,7 +17,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/MostrarProducto"
+                android:id="@+id/NombreLista"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tvProduct"
@@ -50,13 +50,13 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvPrecio"
+                    android:id="@+id/cantidadProducots"
                     android:layout_width="75dp"
                     android:layout_height="wrap_content"
                     android:text="@string/tvPrecio" />
 
                 <TextView
-                    android:id="@+id/MostrarPrecio"
+                    android:id="@+id/MostrarCantidadProducto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/tvPrecio" />

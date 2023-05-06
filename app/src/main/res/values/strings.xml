@@ -12,6 +12,7 @@
     <string name="Remember">Recordatorios</string>
     <string name="Interest">Lugares de Interes</string>
 
+
     <string name="botonList">Boton Lista Compras</string>
     <string name="botonRemember">Boton Recordatorios</string>
     <string name="botonInterest">Boton Lugares de Interes</string>
@@ -33,7 +34,21 @@
     <string name="ettCantidad">cantidad</string>
     <string name="ettUbicacion">ubicacion</string>
     <string name="ettTipoPoducto">Tipo de Producto</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+
+
+    <!--Lista de compras-->
+    <string name="nameList">nombre de lista</string>
+    <string name="cantidadProdcutos">Cantidad de productos</string>
+
+
+
+
+    <!-- Toolbar-->
+    <string name="btnback">btnback</string>
+    <string name="NewList">Nueva Lista</string>
+    <string name="listProduct">Lista de Productos</string>
+
+    <string name="title_activity_settings">Configuraciones</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>

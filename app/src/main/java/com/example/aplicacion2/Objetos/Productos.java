@@ -68,15 +68,5 @@ public class Productos implements Serializable {
     }
 
 
-    @Override
-    public String toString() {
-        return "Productos{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", precio=" + precio +
-                ", cantidad=" + cantidad +
-                ", ubicacion='" + ubicacion + '\'' +
-                ", tipo='" + tipo + '\'' +
-                '}';
-    }
+
 }

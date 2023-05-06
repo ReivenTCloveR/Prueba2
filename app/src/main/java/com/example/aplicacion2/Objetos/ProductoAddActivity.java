@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.example.aplicacion2.R;
 import com.example.aplicacion2.db.DbProductos;
 
-public class ProductoAdd extends AppCompatActivity {
+public class ProductoAddActivity extends AppCompatActivity {
 
     private EditText etProducto, etPrecio, etCantidad, etUbicacion, etTipo;
     Button btnAñadir;
@@ -35,13 +35,12 @@ public class ProductoAdd extends AppCompatActivity {
         etCantidad.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         btnAñadir.setOnClickListener(view -> {
-            DbProductos dbProductos = new DbProductos(ProductoAdd.this);
+            DbProductos dbProductos = new DbProductos(ProductoAddActivity.this);
             long id = dbProductos.insertarProducto(etProducto.getText().toString(), Integer.parseInt(etPrecio.getText().toString()), Integer.parseInt(etCantidad.getText().toString()), etUbicacion.getText().toString(), etTipo.getText().toString());
 
             if(id>0){
                 Toast.makeText(this, "SE AÑADIO EL PRODUCTO A SU LISTA", Toast.LENGTH_SHORT).show();
                 limpiar();
-                onBackPressed();
             }else {
                 Toast.makeText(this, "ERROR AL AÑADIR EL PRODUCTO", Toast.LENGTH_SHORT).show();
             }

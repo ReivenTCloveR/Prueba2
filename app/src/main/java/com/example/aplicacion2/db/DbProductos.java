@@ -87,7 +87,7 @@ public class DbProductos extends DbHelper {
         Productos productos = null;
         Cursor cursorProductos;
 
-        cursorProductos = db.rawQuery("SELECT * FROM " + TABLE_PRODUCTO + " WHERE id = '" + id + "' LIMIT 1", null);
+        cursorProductos = db.rawQuery("SELECT * FROM " + TABLE_PRODUCTO + " WHERE id_producto = '" + id + "' LIMIT 1", null);
 
         if (cursorProductos.moveToFirst()) {
             productos = new Productos();
@@ -111,7 +111,7 @@ public class DbProductos extends DbHelper {
         DbHelper dbhelper = new DbHelper(context);
         this.db = dbhelper.getWritableDatabase();
         try {
-            db.execSQL("UPDATE " + TABLE_PRODUCTO + " SET precio ='" + precio + "', cantidad ='" + cantidad + "', ubicacion ='" + ubicacion + "' WHERE id = '" + id + "'");
+            db.execSQL("UPDATE " + TABLE_PRODUCTO + " SET precio ='" + precio + "', cantidad ='" + cantidad + "', ubicacion ='" + ubicacion + "' WHERE id_producto = '" + id + "'");
             ready = true;
         } catch (Exception ex) {
             ex.toString();
@@ -122,5 +122,26 @@ public class DbProductos extends DbHelper {
 
         return ready;
     }
+
+    public boolean eliminarProducto(int id) {
+
+        boolean ready;
+        DbHelper dbhelper = new DbHelper(context);
+        this.db = dbhelper.getWritableDatabase();
+        try {
+            db.execSQL("DELETE FROM " + TABLE_PRODUCTO + " WHERE id_producto='" + id + "'");
+            ready = true;
+        } catch (Exception ex) {
+            ex.toString();
+            ready = false;
+        }finally {
+            db.close();
+        }
+
+        return ready;
+    }
+
+
+
 
 }

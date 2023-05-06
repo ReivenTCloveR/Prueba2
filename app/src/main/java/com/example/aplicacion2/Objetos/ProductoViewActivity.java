@@ -1,8 +1,10 @@
 package com.example.aplicacion2.Objetos;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.text.Editable;
@@ -13,10 +15,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.aplicacion2.Clases.ListProductActivity;
 import com.example.aplicacion2.R;
 import com.example.aplicacion2.db.DbProductos;
 
-public class ProductoView extends AppCompatActivity {
+
+public class ProductoViewActivity extends AppCompatActivity {
 
     private EditText etProducto, etPrecio, etUbicacion, etCantidad, etTipo;
     private ImageButton btnEdit, btnDelete;
@@ -56,7 +60,6 @@ public class ProductoView extends AppCompatActivity {
         btnDeshacer.setVisibility(View.INVISIBLE);
 
 
-
         //Ver producto
         if (savedInstanceState == null) {
             Bundle extra = getIntent().getExtras();
@@ -71,7 +74,7 @@ public class ProductoView extends AppCompatActivity {
 
         //aqui se hace la consulta a la BD
 
-         final DbProductos dbProductos = new DbProductos(ProductoView.this);
+         final DbProductos dbProductos = new DbProductos(ProductoViewActivity.this);
         producto = dbProductos.verProducto(id);
 
         if (producto != null) {
@@ -86,7 +89,6 @@ public class ProductoView extends AppCompatActivity {
         //Editar Producto
 
         final boolean[] ready = {false};
-
 
         btnEdit.setOnClickListener(v -> {
 
@@ -111,14 +113,14 @@ public class ProductoView extends AppCompatActivity {
                     Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
 
                     if (ready[0]){
-                        Toast.makeText(ProductoView.this, "Modificacion realizada", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProductoViewActivity.this, "Modificacion realizada", Toast.LENGTH_SHORT).show();
                         intercambiadorDeBotones();
                     }else {
-                        Toast.makeText(ProductoView.this, "Error al modificar su Producto", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProductoViewActivity.this, "Error al modificar su Producto", Toast.LENGTH_SHORT).show();
                         intercambiadorDeBotones();
                     }
                 }else {
-                    Toast.makeText(ProductoView.this, "DEBE LLENAR LOS CAMPOS OBLIGATORIOS", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProductoViewActivity.this, "DEBE LLENAR LOS CAMPOS OBLIGATORIOS", Toast.LENGTH_SHORT).show();
                     intercambiadorDeBotones();
                 }
             });
@@ -132,10 +134,33 @@ public class ProductoView extends AppCompatActivity {
 
 
         });
+
+
+        btnDelete.setOnClickListener(v -> {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(ProductoViewActivity.this);
+            builder.setMessage("¿Desea eliminar este producto?").setPositiveButton("Si", (dialog, i) -> {
+                if(dbProductos.eliminarProducto(id)){
+                    lista();
+                }
+            }).setNegativeButton("No", (dialog, i) -> {
+
+            }).show();
+        });
+
+
+
+
     }
 
+    private void lista(){
+        Intent intent = new Intent(this, ListProductActivity.class);
+        startActivity(intent);
+    }
+
+
     //para que el codigo sea menos extenso
-    public void intercambiadorDeBotones(){
+    private void intercambiadorDeBotones(){
         btnGuardar.setVisibility(View.INVISIBLE);
         btnDeshacer.setVisibility(View.INVISIBLE);
         btnEdit.setVisibility(View.VISIBLE);

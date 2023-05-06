@@ -8,8 +8,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.aplicacion2.Clases.InterestActivity;
-import com.example.aplicacion2.Clases.ListActivity;
+import com.example.aplicacion2.Clases.ListProductActivity;
 import com.example.aplicacion2.Clases.RememberActivity;
+import com.example.aplicacion2.Clases.ShoppingListActivity;
 
 public class MainUsuarioActivity extends AppCompatActivity {
 
@@ -27,7 +28,7 @@ public class MainUsuarioActivity extends AppCompatActivity {
     //Metodos
 
     public void irList(View view) {
-        Intent i = new Intent(this, ListActivity.class);
+        Intent i = new Intent(this, ShoppingListActivity.class);
         startActivity(i);    }
 
     public void irInterest(View view) {
