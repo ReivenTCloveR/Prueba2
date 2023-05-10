@@ -10,8 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.aplicacion2.Objetos.ProductoViewActivity;
-import com.example.aplicacion2.Objetos.Productos;
+import com.example.aplicacion2.Objetos.Productos.ProductoViewActivity;
+import com.example.aplicacion2.Objetos.Productos.Productos;
 import com.example.aplicacion2.R;
 
 import java.util.ArrayList;
@@ -56,13 +56,14 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
     }
 
 //para buscar
+    @SuppressLint("NotifyDataSetChanged")
     public void filtro (String txtBuscar){
         int longitud = txtBuscar.length();
         if ( longitud== 0){
             list.clear();
             list.addAll(originallist);
         }else {
-            List<Productos> colleccion = (List<Productos>) list.stream()
+            List<Productos> colleccion =  list.stream()
                     .filter(i->i.getNombre().toLowerCase().contains(txtBuscar.toLowerCase()))
                     .collect(Collectors.toList());
             list.clear();

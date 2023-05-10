@@ -2,7 +2,6 @@ package com.example.aplicacion2.Clases;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
@@ -14,10 +13,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.aplicacion2.Adapters.AdapterProduct;
-import com.example.aplicacion2.Objetos.ShoppingListAddActivity;
+import com.example.aplicacion2.Objetos.ListaProducto.ShoppingListAddActivity;
 import com.example.aplicacion2.R;
 import com.example.aplicacion2.Setting.SettingsActivity;
-import com.example.aplicacion2.db.DbProductos;
 
 public class ShoppingListActivity extends AppCompatActivity {
 

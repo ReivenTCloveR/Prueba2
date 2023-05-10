@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.aplicacion2.Objetos.ShoppingList;
+import com.example.aplicacion2.Objetos.ListaProducto.ShoppingList;
 import com.example.aplicacion2.R;
 
 import java.util.ArrayList;

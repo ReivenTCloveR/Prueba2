@@ -18,11 +18,11 @@
             android:exported="false"
             android:label="@string/title_activity_settings" />
         <activity
-            android:name=".Objetos.ShoppingListAddActivity"
+            android:name=".Objetos.ListaProducto.ShoppingListAddActivity"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".Objetos.ProductoAddActivity"
+            android:name=".Objetos.Productos.ProductoAddActivity"
             android:exported="false"
             android:parentActivityName=".Clases.ListProductActivity" >
             <meta-data
@@ -31,7 +31,7 @@
         </activity>
 
         <activity
-            android:name=".Objetos.ProductoViewActivity"
+            android:name=".Objetos.Productos.ProductoViewActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

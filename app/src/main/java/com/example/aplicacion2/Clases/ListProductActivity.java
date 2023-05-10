@@ -16,7 +16,8 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.aplicacion2.Adapters.AdapterProduct;
-import com.example.aplicacion2.Objetos.ProductoAddActivity;
+
+import com.example.aplicacion2.Objetos.Productos.ProductoAddActivity;
 import com.example.aplicacion2.R;
 import com.example.aplicacion2.Setting.SettingsActivity;
 import com.example.aplicacion2.db.DbHelper;

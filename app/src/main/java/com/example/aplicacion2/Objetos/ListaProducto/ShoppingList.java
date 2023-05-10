@@ -1,4 +1,4 @@
-package com.example.aplicacion2.Objetos;
+package com.example.aplicacion2.Objetos.ListaProducto;
 
 import java.io.Serializable;
 import java.util.ArrayList;

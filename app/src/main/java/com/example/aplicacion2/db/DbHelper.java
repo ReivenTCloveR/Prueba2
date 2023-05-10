@@ -7,11 +7,10 @@ import androidx.annotation.Nullable;
 
 public class DbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NOMBRE = "producto.db";
     public static final String TABLE_PRODUCTO = "t_producto";
     public static final String TABLE_LIST_PRODUCTOS = "t_lista_productos";
-    public static final String TABLE_LIST_COMPRA = "t_lista_compra";
 
     public DbHelper(@Nullable Context context) {
         super(context, DATABASE_NOMBRE, null, DATABASE_VERSION);
@@ -29,14 +28,12 @@ public class DbHelper extends SQLiteOpenHelper {
                 "tipo TEXT NOT NULL)");
 
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_LIST_PRODUCTOS + "(" +
-                "id_lista_producto INTEGER NOT NULL," +
+                "id_lista_producto INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "nombreLista TEXT NOT NULL," +
-                "id_producto INTEGER NOT NULL)");
+                "id_producto INTEGER NOT NULL,"+
+                "cantidad_producto INTEGER NOT NULL)");
 
-        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_LIST_COMPRA + "(" +
-                "id_lista_compra INTEGER NOT NULL," +
-                "nombreLista TEXT NOT NULL," +
-                "id_lista_producto INTEGER NOT NULL)");
+
 
     }
 
@@ -45,7 +42,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL("DROP TABLE " + TABLE_PRODUCTO);
         sqLiteDatabase.execSQL("DROP TABLE " + TABLE_LIST_PRODUCTOS);
-        sqLiteDatabase.execSQL("DROP TABLE " + TABLE_LIST_COMPRA);
         onCreate(sqLiteDatabase);
 
     }

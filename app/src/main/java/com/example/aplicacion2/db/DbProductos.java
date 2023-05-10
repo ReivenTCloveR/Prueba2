@@ -9,7 +9,7 @@ import android.text.Editable;
 
 import androidx.annotation.Nullable;
 
-import com.example.aplicacion2.Objetos.Productos;
+import com.example.aplicacion2.Objetos.Productos.Productos;
 
 import java.util.ArrayList;
 

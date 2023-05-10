@@ -1,4 +1,4 @@
-package com.example.aplicacion2.Objetos;
+package com.example.aplicacion2.Objetos.Productos;
 import java.io.Serializable;
 
 public class Productos implements Serializable {

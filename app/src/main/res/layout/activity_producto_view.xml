@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="5dp"
     android:orientation="vertical"
-    tools:context=".Objetos.ProductoViewActivity">
+    tools:context=".Objetos.Productos.ProductoViewActivity">
 
     <TextView
         android:id="@+id/viewProduct"
@@ -45,7 +45,7 @@
         android:ems="10"
         android:autofillHints="@string/ettPrecio"
         android:hint="@string/ettPrecio"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:labelFor="@+id/cantidadProducots"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,7 +67,7 @@
         android:ems="10"
         android:autofillHints="@string/ettCantidad"
         android:hint="@string/ettCantidad"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:labelFor="@+id/tvCantidad"
         android:textSize="20sp" />
 
