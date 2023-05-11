@@ -28,7 +28,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 "tipo TEXT NOT NULL)");
 
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_LIST_PRODUCTOS + "(" +
-                "id_lista_producto INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "id_lista_producto NOT NULL," +
                 "nombreLista TEXT NOT NULL," +
                 "id_producto INTEGER NOT NULL,"+
                 "cantidad_producto INTEGER NOT NULL)");

@@ -7,46 +7,49 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.media.Image;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.CheckBox;
+
+
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-
 import com.example.aplicacion2.Adapters.AdapterProductAdd;
 import com.example.aplicacion2.Clases.ShoppingListActivity;
 import com.example.aplicacion2.MainUsuarioActivity;
-import com.example.aplicacion2.Objetos.Productos.Productos;
 import com.example.aplicacion2.R;
 import com.example.aplicacion2.db.DbHelper;
 import com.example.aplicacion2.db.DbProductos;
-import com.example.aplicacion2.db.ProductListener;
+import com.example.aplicacion2.db.DbTablaProducto;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
 
-public class ShoppingListAddActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, ProductListener {
+public class ShoppingListAddActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     RecyclerView listaProductos;
     ImageView btnBack;
     FloatingActionButton addProductos;
     SearchView BuscarProductos;
-    CheckBox checkBox;
+    Button AñadirLista;
     AdapterProductAdd adapterProductAdd;
 
+    EditText etNombreLista,etCantidadComprar;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_list_add);
 
+
+        etNombreLista = findViewById(R.id.etNombreLista);
+        etCantidadComprar = findViewById(R.id.etCantidadComprar);
+
         listaProductos = findViewById(R.id.lv_addProduct);
         listaProductos.setLayoutManager(new LinearLayoutManager(this));
         DbProductos dbProductos = new DbProductos(ShoppingListAddActivity.this);
-        adapterProductAdd = new AdapterProductAdd(this, dbProductos.mostrarPoduct(),this);
+        adapterProductAdd = new AdapterProductAdd(this, dbProductos.mostrarPoduct());
         listaProductos.setAdapter(adapterProductAdd);
 
         BuscarProductos =findViewById(R.id.BuscarProductos);
@@ -56,16 +59,49 @@ public class ShoppingListAddActivity extends AppCompatActivity implements Search
         DbHelper dbhelper = new DbHelper(ShoppingListAddActivity.this);
         SQLiteDatabase db = dbhelper.getWritableDatabase();
 
-
         //inicializar btns
         btnBack = findViewById(R.id.imgbtnBack);
         addProductos = findViewById(R.id.addButton);
-        checkBox = findViewById(R.id.checkBox);
+
 
         btnBack.setOnClickListener(v -> {
             Intent i = new Intent(this, ShoppingListActivity.class);
             startActivity(i);
         });
+
+
+/*
+        AñadirLista.setOnClickListener(v -> {
+            DbTablaProducto dbTablaProducto = new DbTablaProducto(ShoppingListAddActivity.this);
+            int id_tabla = dbTablaProducto.obtenerUltimaIdListaProductos();
+            Bundle extra = getIntent().getExtras();
+            int id_producto = extra.getInt("ID_Producto");
+            long id_join;
+
+            try {
+                id_join = dbTablaProducto.insertarTablaProducto(id_tabla, etNombreLista.toString(), id_producto, Integer.parseInt(etCantidadComprar.getText().toString()));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            if (id_join > 0) {
+                Toast.makeText(this, "SE AÑADIO EL PRODUCTO A SU LISTA", Toast.LENGTH_SHORT).show();
+
+            } else {
+                Toast.makeText(this, "ERROR AL AÑADIR EL PRODUCTO", Toast.LENGTH_SHORT).show();
+            }
+
+
+        });*/
+
+
+        //AñadirListaProducto
+
+        addProductos.setOnClickListener(v -> {
+            Intent i = new Intent(this, ShoppingListAddActivity.class);
+            startActivity(i);
+        });
+
+
     }
 
     @Override
@@ -77,8 +113,5 @@ public class ShoppingListAddActivity extends AppCompatActivity implements Search
         return false;
     }
 
-    @Override
-    public void onProductChange(ArrayList<Productos> list) {
-        Toast.makeText(this, "Agregar", Toast.LENGTH_SHORT).show();
-    }
+
 }

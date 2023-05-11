@@ -31,8 +31,6 @@ public class ProductoAddActivity extends AppCompatActivity {
         etTipo = findViewById(R.id.ettTipoProducto);
         btnAñadir = findViewById(R.id.btnAddNewProduct);
 
-        etPrecio.setInputType(InputType.TYPE_CLASS_NUMBER);
-        etCantidad.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         btnAñadir.setOnClickListener(view -> {
             DbProductos dbProductos = new DbProductos(ProductoAddActivity.this);
