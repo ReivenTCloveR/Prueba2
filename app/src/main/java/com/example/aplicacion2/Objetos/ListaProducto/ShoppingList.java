@@ -24,24 +24,23 @@ public class ShoppingList implements Serializable {
         return id_list;
     }
 
-    public void getId_list(int id) {
-        this.id_list = id;
+    public void setId_list(int id_list) {
+        this.id_list = id_list;
     }
 
     public String getNombre_list() {
         return nombre_list;
     }
 
-    public void getNombre_list(String nombre) {
-        this.nombre_list = nombre;
+    public void setNombre_list(String nombre_list) {
+        this.nombre_list = nombre_list;
     }
 
     public int getCantidad_productos() {
         return cantidad_productos;
     }
 
-    public void setCantidad_productos(int cantidad) {
-        this.cantidad_productos = cantidad;
+    public void setCantidad_productos(int cantidad_productos) {
+        this.cantidad_productos = cantidad_productos;
     }
-
 }

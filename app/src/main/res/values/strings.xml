@@ -36,6 +36,10 @@
     <string name="ettTipoPoducto">Tipo de Producto</string>
 
 
+    <!--ListaProducto add-->
+    <string name="inStock">inStock</string>
+    <string name="valor0">0</string>
+
     <!--Lista de compras-->
     <string name="nameList">nombre de lista</string>
     <string name="cantidadProdcutos">Cantidad de productos</string>
@@ -43,9 +47,10 @@
 
 
 
+
     <!-- Toolbar-->
     <string name="btnback">btnback</string>
-    <string name="NewList">Nueva Lista</string>
+    <string name="NewList">Crear Nueva Lista</string>
     <string name="listProduct">Lista de Productos</string>
 
     <string name="title_activity_settings">Configuraciones</string>

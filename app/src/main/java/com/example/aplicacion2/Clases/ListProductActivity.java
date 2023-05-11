@@ -48,9 +48,10 @@ public class ListProductActivity extends AppCompatActivity implements SearchView
          DbHelper dbhelper = new DbHelper(ListProductActivity.this);
          SQLiteDatabase db = dbhelper.getWritableDatabase();
 
+         /*
          if(db != null){
              Toast.makeText(this, "Lista de Compra", Toast.LENGTH_SHORT).show();
-         }else Toast.makeText(this, "Error al cargar la Lista de Compra", Toast.LENGTH_SHORT).show();
+         }else Toast.makeText(this, "Error al cargar la Lista de Compra", Toast.LENGTH_SHORT).show();*/
 
 
     }
@@ -70,7 +71,6 @@ public class ListProductActivity extends AppCompatActivity implements SearchView
     @Override
     public boolean onQueryTextChange(String txtbusca) {
         adapterProduct.filtro(txtbusca);
-
         return false;
     }
 
